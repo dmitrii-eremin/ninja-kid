@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bssocgl1yfhce"]
+
+[ext_resource type="Script" path="res://platform.gd" id="1_oa77k"]
+[ext_resource type="Texture2D" uid="uid://ckbj4uabb1dpy" path="res://art/platform.png" id="2_pkt7e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evuqu"]
+size = Vector2(40, 16)
+
+[node name="Platform" type="Node2D"]
+script = ExtResource("1_oa77k")
+metadata/_edit_group_ = true
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="AnimatableBody2D"]
+offset_right = 48.0
+offset_bottom = 16.0
+texture = ExtResource("2_pkt7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+visible = false
+position = Vector2(24, 8)
+shape = SubResource("RectangleShape2D_evuqu")
+
+[node name="InitialDelayTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="InitialDelayTimer" to="." method="_on_initial_delay_timer_timeout"]

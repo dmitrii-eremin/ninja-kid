@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://b70ah3xd51gyd"]
+
+[ext_resource type="Script" path="res://cannon_ball.gd" id="1_5ythv"]
+[ext_resource type="Texture2D" uid="uid://cyr7ea1c168n5" path="res://art/misc/spr_star_0.png" id="1_iro2r"]
+[ext_resource type="AudioStream" uid="uid://dm2omcb2yl0ft" path="res://sounds/hurt.wav" id="3_wstvc"]
+[ext_resource type="AudioStream" uid="uid://bg4dwaa1h62vx" path="res://sounds/fire.wav" id="4_gb7go"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pdsvg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_iro2r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahtec"]
+radius = 5.0
+
+[node name="CannonBall" type="RigidBody2D"]
+mass = 0.01
+gravity_scale = 0.1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_5ythv")
+speed = 500
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pdsvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_ahtec")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wstvc")
+
+[node name="AppearSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gb7go")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="HitSound" to="." method="_on_hit_sound_finished"]

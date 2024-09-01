@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://bac3yjsf577en"]
+
+[ext_resource type="Script" path="res://wait_timer.gd" id="1_vge32"]
+[ext_resource type="LabelSettings" uid="uid://1asegpykgqww" path="res://menu/main_menu.tres" id="2_qd76l"]
+[ext_resource type="Texture2D" uid="uid://pmdnrxa2gj4k" path="res://art/ninja/run4.png" id="3_unq3n"]
+[ext_resource type="AudioStream" uid="uid://q4siqihh1eg8" path="res://sounds/pick.wav" id="4_oef2j"]
+[ext_resource type="AudioStream" uid="uid://fmhatjld06t7" path="res://sounds/pick2.wav" id="5_ycphc"]
+
+[node name="WaitTimer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vge32")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelName" type="Label" parent="CanvasLayer"]
+offset_right = 240.0
+offset_bottom = 152.0
+text = "1-2"
+label_settings = ExtResource("2_qd76l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecondsLeft" type="Label" parent="CanvasLayer"]
+offset_top = 24.0
+offset_right = 240.0
+offset_bottom = 176.0
+text = "4"
+label_settings = ExtResource("2_qd76l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerTexture" type="TextureRect" parent="CanvasLayer"]
+offset_left = 8.0
+offset_right = 24.0
+offset_bottom = 16.0
+texture = ExtResource("3_unq3n")
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+offset_left = 56.0
+offset_top = 2.0
+offset_right = 232.0
+offset_bottom = 18.0
+text = "Score: 20300"
+label_settings = ExtResource("2_qd76l")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LivesCount" type="Label" parent="CanvasLayer"]
+offset_left = 11.0
+offset_top = 2.0
+offset_right = 59.0
+offset_bottom = 18.0
+text = "x3
+"
+label_settings = ExtResource("2_qd76l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_oef2j")
+
+[node name="PickSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ycphc")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="PickSound2" to="." method="_on_pick_sound_2_finished"]

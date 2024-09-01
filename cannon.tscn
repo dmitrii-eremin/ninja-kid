@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj4t27jjwn8vs"]
+
+[ext_resource type="Texture2D" uid="uid://cnajf3ty2oqr3" path="res://art/misc/spr_cannondown_0.png" id="1_3m7oj"]
+[ext_resource type="Script" path="res://cannon.gd" id="1_dmy5c"]
+[ext_resource type="Texture2D" uid="uid://ch5k0vkayxlhe" path="res://art/misc/spr_cannonleft_0.png" id="2_ch2ch"]
+[ext_resource type="Texture2D" uid="uid://b6jl2je5t4lxq" path="res://art/misc/spr_cannonright_0.png" id="3_7owb1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkhfy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3m7oj")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7owb1")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ch2ch")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vy3c"]
+radius = 6.0
+height = 12.0
+
+[node name="Cannon" type="StaticBody2D" groups=["cannon"]]
+script = ExtResource("1_dmy5c")
+delay = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gkhfy")
+animation = &"right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1vy3c")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

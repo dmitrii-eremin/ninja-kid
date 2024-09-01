@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfiyvautxo6h7"]
+
+[ext_resource type="Script" path="res://menu/menu_label.gd" id="1_nbeiq"]
+[ext_resource type="LabelSettings" uid="uid://1asegpykgqww" path="res://menu/main_menu.tres" id="2_u06tm"]
+
+[node name="MenuLabel" type="Node2D"]
+script = ExtResource("1_nbeiq")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = ">> Demo label <<"
+label_settings = ExtResource("2_u06tm")

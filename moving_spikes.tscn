@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://buu0gj2ady7wm"]
+
+[ext_resource type="Texture2D" uid="uid://ojsk726002y6" path="res://art/tilesheetv1mini.png" id="2_xn3fj"]
+
+[sub_resource type="GDScript" id="GDScript_d2k6q"]
+script/source = "extends Node2D
+
+var active = false
+@onready var tween = get_tree().create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+
+func switch():
+	set_active(not active)
+
+	
+func set_active(value):
+	active = value
+	if active:
+		$Sprite2D.position = Vector2(0, -6)
+		$CollisionShape2D.position = Vector2(0, -5)
+	else:
+		$Sprite2D.position = Vector2(0, 0)
+		$CollisionShape2D.position = Vector2(0, 1)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btnat"]
+atlas = ExtResource("2_xn3fj")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_heq4g"]
+radius = 2.99999
+height = 12.0
+
+[node name="MovingSpikes" type="Area2D"]
+z_index = 10
+collision_layer = 128
+collision_mask = 0
+script = SubResource("GDScript_d2k6q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_btnat")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+rotation = 1.56822
+shape = SubResource("CapsuleShape2D_heq4g")

@@ -1,0 +1,232 @@
+[gd_scene load_steps=12 format=4 uid="uid://b1hpyvpitge3a"]
+
+[ext_resource type="Script" path="res://menu/select_level.gd" id="1_bskix"]
+[ext_resource type="PackedScene" uid="uid://bsi0lrqw3f42f" path="res://ninja.tscn" id="1_q4mw1"]
+[ext_resource type="TileSet" uid="uid://bh13re3510i6" path="res://tileset.tres" id="2_s4gwq"]
+[ext_resource type="LabelSettings" uid="uid://1asegpykgqww" path="res://menu/main_menu.tres" id="4_chxhr"]
+[ext_resource type="Texture2D" uid="uid://ojsk726002y6" path="res://art/tilesheetv1mini.png" id="4_sy76e"]
+[ext_resource type="AudioStream" uid="uid://q4siqihh1eg8" path="res://sounds/pick.wav" id="5_nre1p"]
+[ext_resource type="AudioStream" uid="uid://d0bbgxtcm1l8u" path="res://music/intro.ogg" id="6_044ly"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8kl4"]
+atlas = ExtResource("4_sy76e")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8v85m"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b085o"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy2lp"]
+size = Vector2(34, 20)
+
+[node name="SelectLevel" type="Node2D"]
+script = ExtResource("1_bskix")
+
+[node name="Ninja" parent="." instance=ExtResource("1_q4mw1")]
+position = Vector2(88, 64)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAJAAAAAAAFAAEAAAAKAAAAAAAFAAEAAAALAAAAAAAFAAEAAAAMAAAAAAAFAAEAAAANAAAAAAAFAAEAAAAOAAAAAAAFAAEAAAAAAAsAAAAGAAEAAAABAAsAAAAGAAEAAAACAAsAAAAGAAEAAAADAAsAAAAGAAEAAAAEAAsAAAAGAAEAAAAFAAsAAAAGAAEAAAAGAAsAAAAGAAEAAAAHAAsAAAAGAAEAAAAIAAsAAAAGAAEAAAAJAAsAAAAGAAEAAAAKAAsAAAAGAAEAAAALAAsAAAAGAAEAAAAMAAsAAAAGAAEAAAANAAsAAAAGAAEAAAAOAAsAAAAGAAEAAAD//wsAAAAGAAEAAAD//woAAAADAAAAAAD//wkAAAAFAAAAAAD//wgAAAAFAAAAAAD//wAAAAADAAEAAAD/////AAAGAAEAAAAAAP//AAAGAAEAAAABAP//AAAGAAEAAAACAP//AAAGAAEAAAADAP//AAAGAAEAAAAEAP//AAAGAAEAAAAFAP//AAAGAAEAAAAGAP//AAAGAAEAAAAHAP//AAAGAAEAAAAIAP//AAAGAAEAAAAJAP//AAAGAAEAAAAKAP//AAAGAAEAAAALAP//AAAGAAEAAAAMAP//AAAGAAEAAAANAP//AAAGAAEAAAAOAP//AAAGAAEAAAAPAP//AAAGAAEAAAAPAAAAAAACAAEAAAAPAAEAAAAEAAEAAAAPAAQAAAAEAAEAAAAPAAUAAAAEAAEAAAAPAAYAAAAEAAEAAAAPAAcAAAAEAAEAAAAPAAgAAAAEAAEAAAAPAAoAAAACAAAAAAAPAAsAAAAGAAEAAAAPAAMAAAAEAAEAAAD//wYAAAAFAAAAAAAAAAAAAAAFAAEAAAABAAAAAAAFAAEAAAACAAAAAAAFAAEAAAADAAAAAAAFAAEAAAAEAAAAAAAFAAEAAAAFAAAAAAAFAAEAAAAGAAAAAAAFAAEAAAAHAAAAAAAFAAEAAAAIAAAAAAAFAAEAAAD//wEAAAAFAAAAAAD//wMAAAAFAAAAAAD//wQAAAAFAAAAAAD//wUAAAAFAAAAAAD//wIAAAAFAAAAAAD//wcAAAAFAAAAAAAPAAIAAAAEAAEAAAAPAAkAAAAEAAEAAAAAAAoAAAAEAAAAAAABAAoAAAAEAAAAAAACAAoAAAAEAAAAAAADAAoAAAAEAAAAAAAEAAoAAAAEAAAAAAAFAAoAAAAEAAAAAAAGAAoAAAAEAAAAAAAHAAoAAAAEAAAAAAAIAAoAAAAEAAAAAAAJAAoAAAAEAAAAAAAKAAoAAAAEAAAAAAALAAoAAAAEAAAAAAAMAAoAAAAEAAAAAAANAAoAAAAEAAAAAAAOAAoAAAAEAAAAAAACAAkAAAAEAAQAAAACAAgAAAAEAAQAAAAFAAkAAAAEAAQAAAAFAAgAAAAEAAQAAAAIAAkAAAAEAAQAAAAIAAgAAAAEAAQAAAALAAkAAAAEAAQAAAALAAgAAAAEAAQAAAAOAAkAAAAEAAQAAAAOAAgAAAAEAAQAAAAOAAUAAAAEAAQAAAANAAUAAAAEAAQAAAAMAAUAAAAEAAQAAAAMAAQAAAAEAAQAAAAMAAMAAAAEAAQAAAACAAcAAAAEAAQAAAADAAcAAAAEAAQAAAAFAAcAAAAEAAQAAAAGAAcAAAAEAAQAAAAIAAcAAAAEAAQAAAAJAAcAAAAEAAQAAAAAAAcAAAAEAAQAAAALAAcAAAAEAAQAAAAMAAcAAAAEAAQAAAAFAAUAAAAEAAQAAAAIAAUAAAAEAAQAAAAHAAUAAAAEAAQAAAAEAAUAAAAEAAQAAAACAAUAAAAEAAQAAAABAAUAAAAEAAQAAAALAAQAAAAEAAQAAAAKAAQAAAAEAAQAAAAAAAMAAAAEAAQAAAABAAMAAAAEAAQAAAACAAMAAAAEAAQAAAA=")
+tile_set = ExtResource("2_s4gwq")
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door00" type="StaticBody2D" parent="Doors"]
+position = Vector2(24, 120)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors/Door00"]
+texture = SubResource("AtlasTexture_l8kl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Door00"]
+shape = SubResource("RectangleShape2D_8v85m")
+
+[node name="Door01" type="StaticBody2D" parent="Doors"]
+position = Vector2(72, 120)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors/Door01"]
+texture = SubResource("AtlasTexture_l8kl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Door01"]
+shape = SubResource("RectangleShape2D_8v85m")
+
+[node name="Door02" type="StaticBody2D" parent="Doors"]
+position = Vector2(120, 120)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors/Door02"]
+texture = SubResource("AtlasTexture_l8kl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Door02"]
+shape = SubResource("RectangleShape2D_8v85m")
+
+[node name="Door10" type="StaticBody2D" parent="Doors"]
+position = Vector2(168, 120)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors/Door10"]
+texture = SubResource("AtlasTexture_l8kl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Door10"]
+shape = SubResource("RectangleShape2D_8v85m")
+
+[node name="Door11" type="StaticBody2D" parent="Doors"]
+position = Vector2(216, 120)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors/Door11"]
+texture = SubResource("AtlasTexture_l8kl4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Doors/Door11"]
+position = Vector2(16, 0)
+texture = SubResource("AtlasTexture_l8kl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Door11"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_b085o")
+
+[node name="DoorBoss" type="StaticBody2D" parent="Doors"]
+position = Vector2(216, 56)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors/DoorBoss"]
+texture = SubResource("AtlasTexture_l8kl4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Doors/DoorBoss"]
+position = Vector2(16, 0)
+texture = SubResource("AtlasTexture_l8kl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/DoorBoss"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_b085o")
+
+[node name="Triggers" type="Node" parent="."]
+
+[node name="Level 0-0" type="Area2D" parent="Triggers"]
+position = Vector2(8, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Level 0-0"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_cy2lp")
+
+[node name="Label" type="Label" parent="Triggers/Level 0-0"]
+offset_left = -5.0
+offset_top = -24.0
+offset_right = 35.0
+offset_bottom = -1.0
+text = "0-0"
+label_settings = ExtResource("4_chxhr")
+
+[node name="Level 0-1" type="Area2D" parent="Triggers"]
+position = Vector2(56, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Level 0-1"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_cy2lp")
+
+[node name="Label" type="Label" parent="Triggers/Level 0-1"]
+offset_left = -5.0
+offset_top = -24.0
+offset_right = 35.0
+offset_bottom = -1.0
+text = "0-1
+"
+label_settings = ExtResource("4_chxhr")
+
+[node name="Level 0-2" type="Area2D" parent="Triggers"]
+position = Vector2(104, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Level 0-2"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_cy2lp")
+
+[node name="Label" type="Label" parent="Triggers/Level 0-2"]
+offset_left = -5.0
+offset_top = -24.0
+offset_right = 35.0
+offset_bottom = -1.0
+text = "0-2
+"
+label_settings = ExtResource("4_chxhr")
+
+[node name="Level 1-0" type="Area2D" parent="Triggers"]
+position = Vector2(152, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Level 1-0"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_cy2lp")
+
+[node name="Label" type="Label" parent="Triggers/Level 1-0"]
+offset_left = -5.0
+offset_top = -24.0
+offset_right = 35.0
+offset_bottom = -1.0
+text = "1-0
+"
+label_settings = ExtResource("4_chxhr")
+
+[node name="Level 1-1" type="Area2D" parent="Triggers"]
+position = Vector2(200, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Level 1-1"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_cy2lp")
+
+[node name="Label" type="Label" parent="Triggers/Level 1-1"]
+offset_left = -5.0
+offset_top = -24.0
+offset_right = 35.0
+offset_bottom = -1.0
+text = "1-1
+"
+label_settings = ExtResource("4_chxhr")
+
+[node name="Level BOSS" type="Area2D" parent="Triggers"]
+position = Vector2(216, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Level BOSS"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_cy2lp")
+
+[node name="Label" type="Label" parent="Triggers/Level BOSS"]
+offset_left = -21.0
+offset_top = -34.0
+offset_right = 19.0
+offset_bottom = -11.0
+text = "BOSS
+"
+label_settings = ExtResource("4_chxhr")
+
+[node name="back" type="Area2D" parent="Triggers"]
+position = Vector2(8, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/back"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_cy2lp")
+
+[node name="Label" type="Label" parent="Triggers/back"]
+offset_left = -5.0
+offset_top = -24.0
+offset_right = 35.0
+offset_bottom = -1.0
+text = "Main menu"
+label_settings = ExtResource("4_chxhr")
+
+[node name="PickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nre1p")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_044ly")
+autoplay = true
+parameters/looping = false
+
+[connection signal="area_entered" from="Triggers/Level 0-0" to="." method="_on_level_00_area_entered"]
+[connection signal="area_entered" from="Triggers/Level 0-1" to="." method="_on_level_01_area_entered"]
+[connection signal="area_entered" from="Triggers/Level 0-2" to="." method="_on_level_02_area_entered"]
+[connection signal="area_entered" from="Triggers/Level 1-0" to="." method="_on_level_10_area_entered"]
+[connection signal="area_entered" from="Triggers/Level 1-1" to="." method="_on_level_11_area_entered"]
+[connection signal="area_entered" from="Triggers/Level BOSS" to="." method="_on_level_boss_area_entered"]
+[connection signal="area_entered" from="Triggers/back" to="." method="_on_back_area_entered"]
