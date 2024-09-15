@@ -1,9 +1,0 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c4nvskylv2cqp"]
-
-[ext_resource type="FontFile" uid="uid://d2vbv6gmefp62" path="res://fonts/mainfont.ttf" id="1_vt6gu"]
-
-[resource]
-line_spacing = 0.0
-font = ExtResource("1_vt6gu")
-font_size = 8
-shadow_size = 0
