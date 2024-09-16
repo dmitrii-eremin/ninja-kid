@@ -69,3 +69,15 @@ func _prev_menu():
 	elif selected_menu == MenuItem.MAIN_MENU:
 		selected_menu = MenuItem.CONTINUE
 	_place_pointer()
+
+
+func _on_continue_gui_input(event: InputEvent) -> void:
+	if event.is_pressed():
+		selected_menu = MenuItem.CONTINUE
+		_select()
+
+
+func _on_main_menu_gui_input(event: InputEvent) -> void:
+	if event.is_pressed():
+		selected_menu = MenuItem.MAIN_MENU
+		_select()

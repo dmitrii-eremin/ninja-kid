@@ -39,6 +39,7 @@ text = "Sprites:
 label_settings = SubResource("LabelSettings_17ufr")
 
 [node name="Label3" type="Label" parent="."]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 72.0
 offset_right = 216.0
@@ -49,6 +50,7 @@ text = "Music:
 label_settings = SubResource("LabelSettings_17ufr")
 
 [node name="Label4" type="Label" parent="."]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 112.0
 offset_right = 216.0
@@ -58,6 +60,7 @@ text = "Sound, code, game design:
 label_settings = SubResource("LabelSettings_17ufr")
 
 [node name="Label5" type="Label" parent="."]
+layout_mode = 0
 offset_left = 56.0
 offset_top = 160.0
 offset_right = 232.0

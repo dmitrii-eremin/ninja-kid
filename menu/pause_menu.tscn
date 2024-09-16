@@ -35,6 +35,7 @@ layout_mode = 0
 offset_top = 72.0
 offset_right = 240.0
 offset_bottom = 88.0
+mouse_filter = 1
 text = "Continue"
 label_settings = ExtResource("3_bj52s")
 horizontal_alignment = 1
@@ -44,6 +45,7 @@ layout_mode = 0
 offset_top = 88.0
 offset_right = 240.0
 offset_bottom = 104.0
+mouse_filter = 1
 text = "Main menu"
 label_settings = ExtResource("3_bj52s")
 horizontal_alignment = 1
@@ -55,3 +57,6 @@ offset_top = 64.0
 offset_right = 72.0
 offset_bottom = 80.0
 texture = ExtResource("4_aahsq")
+
+[connection signal="gui_input" from="Continue" to="." method="_on_continue_gui_input"]
+[connection signal="gui_input" from="MainMenu" to="." method="_on_main_menu_gui_input"]

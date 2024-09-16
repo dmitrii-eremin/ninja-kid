@@ -37,3 +37,7 @@ func update_hp():
 		$CanvasLayer/HPBar/Second.visible = true
 	if Global.lives >= 3:
 		$CanvasLayer/HPBar/Third.visible = true
+
+
+func _on_texture_button_pressed() -> void:
+	Input.action_press("ui_cancel")

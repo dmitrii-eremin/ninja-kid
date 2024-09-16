@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cspq7x4rr74yj"]
+[gd_scene load_steps=19 format=4 uid="uid://cspq7x4rr74yj"]
 
 [ext_resource type="Script" path="res://menu/main_menu.gd" id="1_bskix"]
 [ext_resource type="PackedScene" uid="uid://bsi0lrqw3f42f" path="res://ninja.tscn" id="1_q4mw1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dfiyvautxo6h7" path="res://menu/menu_label.tscn" id="4_uhrxu"]
 [ext_resource type="AudioStream" uid="uid://q4siqihh1eg8" path="res://sounds/pick.wav" id="5_cd7qw"]
 [ext_resource type="AudioStream" uid="uid://d0bbgxtcm1l8u" path="res://music/intro.ogg" id="6_v4m8c"]
+[ext_resource type="PackedScene" uid="uid://ofjnyvcj08tm" path="res://joystick.tscn" id="7_moata"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jodo"]
 size = Vector2(24.5, 30.5)
@@ -603,6 +604,8 @@ offset_bottom = 103.0
 text = "Ninja Kid"
 label_settings = SubResource("LabelSettings_uculn")
 horizontal_alignment = 1
+
+[node name="Joystick" parent="." instance=ExtResource("7_moata")]
 
 [connection signal="area_entered" from="Triggers/DemoLevel" to="." method="_on_demo_level_area_entered"]
 [connection signal="area_entered" from="Triggers/Quit" to="." method="_on_quit_area_entered"]
