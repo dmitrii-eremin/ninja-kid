@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck2un6p41s835"]
+[gd_scene load_steps=8 format=3 uid="uid://c2eyj1rb2x2ik"]
 
 [ext_resource type="Script" path="res://main_ui.gd" id="1_dbn0o"]
 [ext_resource type="LabelSettings" uid="uid://1asegpykgqww" path="res://menu/main_menu.tres" id="3_ah4kr"]

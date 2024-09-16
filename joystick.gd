@@ -12,33 +12,33 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_go_left_button_button_down() -> void:
-	Input.action_press("move_left", 1)
-
-
-func _on_go_left_button_button_up() -> void:
-	Input.action_release("move_left")
-
-
-func _on_go_right_button_button_down() -> void:
-	Input.action_press("move_right", 1)
-
-
-func _on_go_right_button_button_up() -> void:
-	Input.action_release("move_right")
-
-
-func _on_jump_button_button_down() -> void:
+func _on_touch_screen_button_pressed() -> void:
 	Input.action_press("jump", 1)
 
 
-func _on_jump_button_button_up() -> void:
+func _on_touch_screen_button_released() -> void:
 	Input.action_release("jump")
 
 
-func _on_fire_button_button_down() -> void:
+func _on_left_button_pressed() -> void:
+	Input.action_press("move_left", 1)
+
+
+func _on_left_button_released() -> void:
+	Input.action_release("move_left")
+
+
+func _on_right_button_pressed() -> void:
+	Input.action_press("move_right", 1)
+
+
+func _on_right_button_released() -> void:
+	Input.action_release("move_right")
+
+
+func _on_fire_button_pressed() -> void:
 	Input.action_press("attack", 1)
 
 
-func _on_fire_button_button_up() -> void:
+func _on_fire_button_released() -> void:
 	Input.action_release("attack")

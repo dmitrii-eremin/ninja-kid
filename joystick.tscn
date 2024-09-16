@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ofjnyvcj08tm"]
+[gd_scene load_steps=5 format=3 uid="uid://ofjnyvcj08tm"]
 
 [ext_resource type="Script" path="res://joystick.gd" id="1_nc4vq"]
-[ext_resource type="Texture2D" uid="uid://dqerijgm0r78e" path="res://art/ui/arrowLeft.png" id="2_nnsko"]
-[ext_resource type="Texture2D" uid="uid://c27jakoftutqn" path="res://art/ui/arrowRight.png" id="3_f0a6d"]
 [ext_resource type="Texture2D" uid="uid://cl66wxda73twi" path="res://art/ui/arrowUp.png" id="4_xkbe0"]
 [ext_resource type="Texture2D" uid="uid://cod1uogpnfcf3" path="res://art/ui/cross.png" id="5_ppg4a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xflla"]
 
 [node name="Joystick" type="Control"]
 layout_mode = 3
@@ -17,63 +17,46 @@ script = ExtResource("1_nc4vq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GoLeftButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 8.0
-offset_top = 136.0
-offset_right = 58.0
-offset_bottom = 186.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("2_nnsko")
-texture_pressed = ExtResource("2_nnsko")
-texture_hover = ExtResource("2_nnsko")
-texture_disabled = ExtResource("2_nnsko")
-texture_focused = ExtResource("2_nnsko")
-stretch_mode = 0
-
-[node name="GoRightButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 48.0
-offset_top = 136.0
-offset_right = 98.0
-offset_bottom = 186.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("3_f0a6d")
-texture_pressed = ExtResource("3_f0a6d")
-texture_hover = ExtResource("3_f0a6d")
-texture_disabled = ExtResource("3_f0a6d")
-texture_focused = ExtResource("3_f0a6d")
-stretch_mode = 0
-
-[node name="JumpButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 200.0
-offset_top = 136.0
-offset_right = 250.0
-offset_bottom = 186.0
-scale = Vector2(0.5, 0.5)
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(200, 136)
+scale = Vector2(0.64, 0.64)
 texture_normal = ExtResource("4_xkbe0")
 texture_pressed = ExtResource("4_xkbe0")
-texture_hover = ExtResource("4_xkbe0")
-texture_disabled = ExtResource("4_xkbe0")
-texture_focused = ExtResource("4_xkbe0")
-stretch_mode = 0
+shape = SubResource("CircleShape2D_xflla")
+shape_visible = false
 
-[node name="FireButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 160.0
-offset_top = 136.0
-offset_right = 210.0
-offset_bottom = 186.0
-scale = Vector2(0.5, 0.5)
+[node name="LeftButton" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(8, 168)
+rotation = -1.57079
+scale = Vector2(0.64, 0.64)
+texture_normal = ExtResource("4_xkbe0")
+texture_pressed = ExtResource("4_xkbe0")
+shape = SubResource("CircleShape2D_xflla")
+shape_visible = false
+
+[node name="RightButton" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(80, 136)
+rotation = -4.71238
+scale = Vector2(0.64, 0.64)
+texture_normal = ExtResource("4_xkbe0")
+texture_pressed = ExtResource("4_xkbe0")
+shape = SubResource("CircleShape2D_xflla")
+shape_visible = false
+
+[node name="FireButton" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(200, 136)
+rotation = -4.71238
+scale = Vector2(0.64, 0.64)
 texture_normal = ExtResource("5_ppg4a")
 texture_pressed = ExtResource("5_ppg4a")
-texture_hover = ExtResource("5_ppg4a")
-texture_disabled = ExtResource("5_ppg4a")
-texture_focused = ExtResource("5_ppg4a")
-stretch_mode = 0
+shape = SubResource("CircleShape2D_xflla")
+shape_visible = false
 
-[connection signal="button_down" from="CanvasLayer/GoLeftButton" to="." method="_on_go_left_button_button_down"]
-[connection signal="button_up" from="CanvasLayer/GoLeftButton" to="." method="_on_go_left_button_button_up"]
-[connection signal="button_down" from="CanvasLayer/GoRightButton" to="." method="_on_go_right_button_button_down"]
-[connection signal="button_up" from="CanvasLayer/GoRightButton" to="." method="_on_go_right_button_button_up"]
-[connection signal="button_down" from="CanvasLayer/JumpButton" to="." method="_on_jump_button_button_down"]
-[connection signal="button_up" from="CanvasLayer/JumpButton" to="." method="_on_jump_button_button_up"]
-[connection signal="button_down" from="CanvasLayer/FireButton" to="." method="_on_fire_button_button_down"]
-[connection signal="button_up" from="CanvasLayer/FireButton" to="." method="_on_fire_button_button_up"]
+[connection signal="pressed" from="CanvasLayer/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="CanvasLayer/TouchScreenButton" to="." method="_on_touch_screen_button_released"]
+[connection signal="pressed" from="CanvasLayer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="released" from="CanvasLayer/LeftButton" to="." method="_on_left_button_released"]
+[connection signal="pressed" from="CanvasLayer/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="released" from="CanvasLayer/RightButton" to="." method="_on_right_button_released"]
+[connection signal="pressed" from="CanvasLayer/FireButton" to="." method="_on_fire_button_pressed"]
+[connection signal="released" from="CanvasLayer/FireButton" to="." method="_on_fire_button_released"]
